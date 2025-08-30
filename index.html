@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sagar Adhurya</title>
+    <style>
+        :root {
+            --nav-width: 250px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- New Layout Styles --- */
+        .page-wrapper {
+            display: flex;
+        }
+
+        nav {
+            width: var(--nav-width);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #386641;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto; /* Allow scrolling for smaller screens */
+        }
+        
+        .main-content {
+            margin-left: var(--nav-width);
+            width: calc(100% - var(--nav-width));
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        main {
+            flex-grow: 1;
+        }
+        /* --- End New Layout --- */
+
+        header {
+            /* Updated background with subtle pattern */
+            background: 
+                url('https://www.transparenttextures.com/patterns/leafy-green.png'),
+                linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            background-blend-mode: overlay;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .header-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        .header-info h2 {
+            font-size: 1.2em;
+            font-weight: normal;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .header-info h3 {
+            font-size: 1em;
+            font-weight: normal;
+            opacity: 0.8;
+        }
+        
+        /* Vertical Navigation Styles */
+        nav .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 20px;
+        }
+        
+        nav h3 {
+            color: #a7c957;
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #6a994e;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px; /* Reduced padding */
+            font-size: 1.0em; /* Reduced font size */
+            transition: background-color 0.3s, padding-left 0.3s;
+            border-radius: 5px;
+            display: block;
+            margin-bottom: 3px; /* Reduced margin */
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #6a994e;
+            padding-left: 25px;
+        }
+        
+        main {
+            padding: 40px 0;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h2.section-title {
+            font-size: 2em;
+            color: #2c5530;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #a7c957;
+            padding-bottom: 10px;
+        }
+        
+        #about p {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: #386641;
+            flex-shrink: 0;
+        }
+
+        .detail-item h3 {
+            font-size: 1.4em;
+            color: #386641;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-item ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .detail-item ul li {
+            padding-left: 0;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        .detail-item .info-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .detail-item a {
+            color: #386641;
+            text-decoration: none;
+        }
+
+        .detail-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .detail-item p {
+             margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Mobile Nav Toggle Button */
+        .mobile-nav-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1001;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            padding: 8px;
+        }
+        
+        .mobile-nav-toggle .icon-hamburger,
+        .mobile-nav-toggle.active .icon-close {
+            display: block;
+        }
+        
+        .mobile-nav-toggle.active .icon-hamburger,
+        .mobile-nav-toggle .icon-close {
+            display: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            :root {
+                --nav-width: 0px; /* Collapse nav on mobile */
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            nav {
+                transform: translateX(-100%);
+            }
+
+            nav.visible {
+                transform: translateX(0);
+                width: 280px; /* Give it a width when visible */
+                box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2c5530"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/></svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2c5530"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+    </button>
+    
+    <div class="page-wrapper">
+        <nav>
+            <div class="container">
+                <h3>Navigation</h3>
+                <a href="index.html" class="active">About Me</a>
+                <a href="research.html">Research Experience</a>
+                <a href="publications.html">Publications</a>
+                <a href="awards.html">Academic Achievements</a>
+                <a href="conference.html">Conference Presentations</a>
+                <a href="talks.html">Invited Talks</a>
+                <a href="teaching.html">Teaching</a>
+            </div>
+        </nav>
+        
+        <div class="main-content">
+            <header>
+                <div class="container header-content">
+                    <img src="asset/profile_photo.jpg" alt="Dr. Sagar Adhurya" class="profile-image">
+                    <div class="header-info">
+                        <h1>Dr. Sagar Adhurya</h1>
+                        <h2>Assistant Professor in Zoology, Government General Degree College, Mangalkote</h2>
+                        <h3>Ecologist | Wildlife Biologist</h3>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="container">
+                <section id="about">
+                    <h2 class="section-title">About Me</h2>
+                    <p>Hello, I am Dr. Sagar Adhurya – a zoologist, ecologist, and teacher with a lifelong curiosity about how living systems work. My academic journey has taken me from earning a PhD in Zoology at Visva-Bharati University to working as a postdoctoral researcher at Kyung Hee University in South Korea and at the Indian Institute of Science Education and Research (IISER) Kolkata. These experiences shaped my research in ecological modelling, biodiversity, conservation, and the use of machine learning to understand ecological patterns. At present, I serve as an Assistant Professor of Zoology, where I enjoy teaching, mentoring, and exploring new research ideas with students.</p>
+                    <p style="margin-top: 15px;">My work focuses on process-based models, food web dynamics, ecological succession, and species conservation, with the broader aim of connecting theory with real-world applications. Over the years, I have published research articles, contributed a book chapter, reviewed for international journals, and been fortunate to receive recognition such as awards from the International Society for Ecological Modelling and a WWF-India conservation grant for my project on the Indian Grey Wolf. Outside the classroom and lab, I find joy in birdwatching, wildlife photography, animal call recording, and trekking. I am also a founder member of the Wildlife Information and Nature Guide Society (WINGS), where I have taken on leadership roles to support community-driven conservation. Through this website, I hope to share my research, conservation initiatives, field experiences, and teaching journey, while also inspiring others who are passionate about nature and ecology.</p>
+                </section>
+                
+                <section id="details">
+                     <div class="details-grid">
+                        <div class="detail-item">
+                            <h3>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5,14h-.79l-.28-.27a6.5,6.5,0,1,0-.7.7l.27.28v.79l5,4.99L20.49,19Zm-6,0A4.5,4.5,0,1,1,14,9.5,4.494,4.494,0,0,1,9.5,14Z"/></svg>
+                                Key Research Interests
+                            </h3>
+                            <ul>
+                                <li>Ecological Modelling</li>
+                                <li>Ecological Informatics</li>
+                                <li>Systems Ecology</li>
+                                <li>Biodiversity</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <h3>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,3,1,9l4,2.25V15a1,1,0,0,0,1,1h12a1,1,0,0,0,1-1V11.25L23,9ZM12,13.5,3,8.25,12,3l9,5.25Z"/></svg>
+                                Educational Qualifications
+                            </h3>
+                            <p><strong>Ph.D. in Zoology (2022)</strong><br>Visva-Bharati University</p>
+                            <p><strong>M.Sc. in Zoology (2016)</strong><br>Visva-Bharati University</p>
+                            <p><strong>B.Sc. in Zoology (2014)</strong><br>Durgapur Government College<br><em>The University of Burdwan</em></p>
+                            <p><strong>Advanced Diploma in Information Technology Applications</strong><br>Youth Computer Training Centre</p>
+                        </div>
+                        <div class="detail-item">
+                            <h3>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,3V5.5C3,5.5 5,7 5,9.5V21H19V9.5C19,7 21,5.5 21,5.5V3H3M6,5H18V5.5C18,5.5 16.6,6.5 16,7.2V9H8V7.2C7.4,6.5 6,5.5 6,5.5V5Z"/></svg>
+                                Postdoctoral Experience
+                            </h3>
+                            <p><strong>Postdoctoral Researcher (Aug 2022 - Jul 2023)</strong><br>Kyung Hee University, South Korea</p>
+                            <p><strong>Postdoctoral Researcher (Jan 2022 - Jul 2022)</strong><br>Indian Institute of Science Education and Research (IISER) Kolkata</p>
+                        </div>
+                        <div class="detail-item">
+                             <h3>
+                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,4H4A2,2,0,0,0,2,6V18a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V6A2,2,0,0,0,20,4Zm0,4L12,13,4,8V6l8,5,8-5Z"/></svg>
+                                 Contact Information
+                            </h3>
+                             <div class="info-line">
+                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,8l-8,5-8-5V6l8,5,8-5m0-2H4A2,2,0,0,0,2,6V18a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V6A2,2,0,0,0,20,4Z"/></svg>
+                                 <div><strong>Email:</strong> <a href="mailto:sagaradhurya@gmail.com">sagaradhurya@gmail.com</a></div>
+                             </div>
+                             <div class="info-line">
+                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62,10.79a15.45,15.45,0,0,0,6.59,6.59l2.2-2.2a.93.93,0,0,1,1-.24,11.36,11.36,0,0,0,3.57.57,1,1,0,0,1,1,1V20a1,1,0,0,1-1,1A17,17,0,0,1,3,4a1,1,0,0,1,1-1H7.5a1,1,0,0,1,1,1,11.36,11.36,0,0,0,.57,3.57.93.93,0,0,1-.24,1Z"/></svg>
+                                 <div><strong>Phone:</strong> <a href="tel:+918918856924">+91 8918856924</a></div>
+                             </div>
+                             <div class="info-line">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33L12,22l7.74-8.67A10,10,0,0,0,12,2Zm0,12.5A2.5,2.5,0,1,1,14.5,12,2.5,2.5,0,0,1,12,14.5Z"/></svg>
+                                <div><strong>Office Address:</strong><br>Government General Degree College, Mangalkote, Purba Bardhaman-713132, West Bengal, India</div>
+                            </div>
+                        </div>
+                         <div class="detail-item">
+                            <h3>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9,12c0-1.71,1.39-3.1,3.1-3.1h4V7H7c-2.76,0-5,2.24-5,5s2.24,5,5,5h4v-1.9H7C5.29,15.1,3.9,13.71,3.9,12Zm8.1,2.9h-4V13h4Zm4-8H13v1.9h4c1.71,0,3.1,1.39,3.1,3.1s-1.39,3.1-3.1,3.1h-4V17h4c2.76,0,5-2.24,5-5S19.76,7,17,7Z"/></svg>
+                                External Links
+                            </h3>
+                            <ul>
+                                <li><a href="https://scholar.google.co.in/citations?user=sbyu0K0AAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+                                <li><a href="https://www.researchgate.net/profile/Sagar-Adhurya" target="_blank">ResearchGate</a></li>
+                                <li><a href="https://orcid.org/0000-0003-0824-4678" target="_blank">ORCID</a></li>
+                            </ul>
+                        </div>
+                     </div>
+                </section>
+            </main>
+            
+            <footer>
+                <div class="container">
+                    <p>&copy; <span id="current-year"></span> Dr. Sagar Adhurya. All Rights Reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        const navToggle = document.querySelector('.mobile-nav-toggle');
+        const primaryNav = document.querySelector('nav');
+
+        navToggle.addEventListener('click', () => {
+            primaryNav.classList.toggle('visible');
+            navToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+
