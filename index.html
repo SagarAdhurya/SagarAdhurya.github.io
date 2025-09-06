@@ -1,427 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Sagar Adhurya</title>
-    <style>
-        :root {
-            --nav-width: 250px;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <!-- SEO Meta Tags -->
+    <title>Dr. Sagar Adhurya - Ecologist & Wildlife Biologist | Assistant Professor in Zoology</title>
+    <meta name="description" content="Dr. Sagar Adhurya is an Assistant Professor in Zoology specializing in ecological modelling, biodiversity conservation, and wildlife biology. Research experience at Kyung Hee University and IISER Kolkata.">
+    <meta name="keywords" content="ecological modelling, biodiversity, wildlife biology, zoology, conservation biology, systems ecology, machine learning, freshwater ecosystems">
+    <meta name="author" content="Dr. Sagar Adhurya">
 
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/bio_trip.png');
-        }
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Dr. Sagar Adhurya - Ecologist & Wildlife Biologist">
+    <meta property="og:description" content="Assistant Professor in Zoology specializing in ecological modelling, biodiversity conservation, and wildlife biology.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
-        /* --- New Layout Styles --- */
-        .page-wrapper {
-            display: flex;
-        }
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
 
-        nav {
-            width: var(--nav-width);
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #386641;
-            padding: 20px 0;
-            z-index: 1000;
-            transition: transform 0.3s ease-in-out;
-            overflow-y: auto; /* Allow scrolling for smaller screens */
-        }
-        
-        .main-content {
-            margin-left: var(--nav-width);
-            width: calc(100% - var(--nav-width));
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        
-        main {
-            flex-grow: 1;
-        }
-        /* --- End New Layout --- */
-
-        header {
-            /* Updated background with subtle pattern */
-            background: 
-                url('https://www.transparenttextures.com/patterns/leafy-green.png'),
-                linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-            background-blend-mode: overlay;
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #fff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .header-info h1 {
-            font-size: 2.5em;
-            margin-bottom: 5px;
-        }
-
-        .header-info h2 {
-            font-size: 1.2em;
-            font-weight: normal;
-            opacity: 0.9;
-            margin-bottom: 5px;
-        }
-        
-        .header-info h3 {
-            font-size: 1em;
-            font-weight: normal;
-            opacity: 0.8;
-        }
-        
-        /* Vertical Navigation Styles */
-        nav .container {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            padding: 20px;
-        }
-        
-        nav h3 {
-            color: #a7c957;
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #6a994e;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px; /* Reduced padding */
-            font-size: 1.0em; /* Reduced font size */
-            transition: background-color 0.3s, padding-left 0.3s;
-            border-radius: 5px;
-            display: block;
-            margin-bottom: 3px; /* Reduced margin */
-        }
-
-        nav a:hover, nav a.active {
-            background-color: #6a994e;
-            padding-left: 25px;
-        }
-        
-        main {
-            padding: 40px 0;
-        }
-
-        section {
-            margin-bottom: 40px;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        h2.section-title {
-            font-size: 2em;
-            color: #2c5530;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #a7c957;
-            padding-bottom: 10px;
-        }
-        
-        #about p {
-            font-size: 1.1em;
-            text-align: justify;
-        }
-        
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .icon {
-            width: 24px;
-            height: 24px;
-            fill: #386641;
-            flex-shrink: 0;
-        }
-
-        .detail-item h3 {
-            font-size: 1.4em;
-            color: #386641;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .detail-item ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .detail-item ul li {
-            padding-left: 0;
-            margin-bottom: 10px;
-            font-size: 1.05em;
-        }
-        
-        .detail-item .info-line {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .detail-item a {
-            color: #386641;
-            text-decoration: none;
-        }
-
-        .detail-item a:hover {
-            text-decoration: underline;
-        }
-        
-        .detail-item p {
-             margin-bottom: 15px;
-        }
-        
-        .detail-item p a {
-            text-decoration: underline;
-            text-decoration-color: #a7c957;
-        }
-        
-         .detail-item p a:hover {
-            text-decoration-color: #386641;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        /* Mobile Nav Toggle Button */
-        .mobile-nav-toggle {
-            display: none;
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            z-index: 1001;
-            background: #fff;
-            border: none;
-            border-radius: 5px;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            padding: 8px;
-        }
-        
-        .mobile-nav-toggle .icon-hamburger,
-        .mobile-nav-toggle.active .icon-close {
-            display: block;
-        }
-        
-        .mobile-nav-toggle.active .icon-hamburger,
-        .mobile-nav-toggle .icon-close {
-            display: none;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            :root {
-                --nav-width: 0px; /* Collapse nav on mobile */
-            }
-
-            .mobile-nav-toggle {
-                display: block;
-            }
-
-            nav {
-                transform: translateX(-100%);
-            }
-
-            nav.visible {
-                transform: translateX(0);
-                width: 280px; /* Give it a width when visible */
-                box-shadow: 5px 0 15px rgba(0,0,0,0.1);
-            }
-
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
 </head>
+
 <body>
     <button class="mobile-nav-toggle" aria-label="Toggle navigation">
-        <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2c5530"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/></svg>
-        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2c5530"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+        <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2c5530">
+            <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/>
+        </svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2c5530">
+            <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+        </svg>
     </button>
-    
+
     <div class="page-wrapper">
-        <nav>
-            <div class="container">
-                <h3>Navigation</h3>
-                <a href="index.html" class="active">About Me</a>
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">Dr. Sagar Adhurya</div>
+                <a href="#about" class="active">About Me</a>
                 <a href="research.html">Research Experience</a>
                 <a href="publications.html">Publications</a>
+                <a href="projects.html">Projects</a>
                 <a href="awards.html">Academic Achievements</a>
-                <a href="conference.html">Conference Presentations</a>
+                <a href="conferences.html">Conferences Attended</a>
+                <a href="workshops.html">Workshops Attended</a>
                 <a href="talks.html">Invited Talks</a>
                 <a href="teaching.html">Teaching</a>
             </div>
         </nav>
-        
+
+
+
         <div class="main-content">
             <header>
                 <div class="container header-content">
-                    <img src="asset/profile_photo.jpg" alt="Dr. Sagar Adhurya" class="profile-image">
+                    <img src="assets/profile_photo.jpg" alt="Dr. Sagar Adhurya - Ecologist and Wildlife Biologist" class="profile-image loading" onerror="this.onerror=null; this.src='https://placehold.co/160x160/6a994e/FFFFFF?text=Dr.%20Sagar%20Adhurya';" loading="lazy">
                     <div class="header-info">
                         <h1>Dr. Sagar Adhurya</h1>
-                        <h2>Assistant Professor in Zoology, Government General Degree College, Mangalkote</h2>
+                        <h2>Assistant Professor in Zoology<br>Government General Degree College, Mangalkote</h2>
                         <h3>Ecologist | Wildlife Biologist</h3>
                     </div>
                 </div>
             </header>
-            
+
             <main class="container">
-                <section id="about">
+                <section id="about" class="loading">
                     <h2 class="section-title">About Me</h2>
-                    <p>Hello, I am Dr. Sagar Adhurya – a zoologist, ecologist, and teacher with a lifelong curiosity about how living systems work. My academic journey has taken me from earning a PhD in Zoology at Visva-Bharati University to working as a postdoctoral researcher at Kyung Hee University in South Korea and at the Indian Institute of Science Education and Research (IISER) Kolkata. These experiences shaped my research in ecological modelling, biodiversity, conservation, and the use of machine learning to understand ecological patterns. At present, I serve as an Assistant Professor of Zoology, where I enjoy teaching, mentoring, and exploring new research ideas with students.</p>
-                    <p style="margin-top: 15px;">My work focuses on process-based models, food web dynamics, ecological succession, and species conservation, with the broader aim of connecting theory with real-world applications. Over the years, I have published research articles, contributed a book chapter, reviewed for international journals, and been fortunate to receive recognition such as awards from the International Society for Ecological Modelling and a WWF-India conservation grant for my project on the Indian Grey Wolf. Outside the classroom and lab, I find joy in birdwatching, wildlife photography, animal call recording, and trekking. I am also a founder member of the Wildlife Information and Nature Guide Society (WINGS), where I have taken on leadership roles to support community-driven conservation. Through this website, I hope to share my research, conservation initiatives, field experiences, and teaching journey, while also inspiring others who are passionate about nature and ecology.</p>
+                    <p>
+                        Hello, I am <strong>Dr. Sagar Adhurya</strong>, an <strong>Assistant Professor in Zoology</strong> at the Government General Degree College, Mangalkote, West Bengal. With a PhD in Zoology from Visva-Bharati University, and postdoctoral
+                        research experience at Kyung Hee University (South Korea) and IISER Kolkata, I specialize in <strong>ecological modelling, biodiversity informatics, and conservation biology</strong>.
+                    </p>
+
+                    <p>
+                        My research integrates <strong>process-based ecological modelling, machine learning algorithms, and biodiversity assessments</strong> to better understand freshwater ecosystems, food web dynamics, and species conservation. I am
+                        deeply committed to bridging theoretical ecology with practical conservation applications, which has been recognized through awards such as the <em>International Society for Ecological Modelling's Best Young Researcher Award</em>                        and a
+                        <em>WWF-India Conservation Catalyst Grant</em> for Indian Grey Wolf conservation.
+                    </p>
+
+                    <p>
+                        Beyond research and teaching, I actively contribute to community and citizen science initiatives such as the Biodiversity of West Bengal Database and serve in various leadership roles in academic and conservation societies. My passions also extend to
+                        <strong>wildlife photography, birdwatching, animal call recording, and trekking</strong>, which enrich my scientific perspective and outreach.
+                    </p>
+
+                    <p>
+                        This website presents my academic journey, research outputs, conservation projects, and teaching philosophy to inspire collaborations and foster a deeper understanding of ecology and biodiversity.
+                    </p>
                 </section>
-                
-                <section id="details">
-                     <div class="details-grid">
+
+                <section id="highlights" class="highlights loading">
+                    <h2 class="section-title">Key Highlights</h2>
+                    <div class="highlights-grid">
+                        <div class="highlight-item">
+                            <h4>37+ Publications</h4>
+                            <p>Peer-reviewed articles in international journals including Ecological Modelling, Global Ecology and Biogeography</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>WWF-India Grant</h4>
+                            <p>₹6 Lakh Conservation Catalyst Programme Grant for Indian Grey Wolf Conservation</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>Best Young Researcher</h4>
+                            <p>2nd Prize by International Society for Ecological Modelling (2023)</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>International Experience</h4>
+                            <p>Postdoctoral research at Kyung Hee University, South Korea & IISER Kolkata</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="details" class="loading">
+                    <div class="details-grid">
                         <div class="detail-item">
-                            <h3>
-                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5,14h-.79l-.28-.27a6.5,6.5,0,1,0-.7.7l.27.28v.79l5,4.99L20.49,19Zm-6,0A4.5,4.5,0,1,1,14,9.5,4.494,4.494,0,0,1,9.5,14Z"/></svg>
-                                Key Research Interests
-                            </h3>
+                            <h3>Research Interests</h3>
                             <ul>
-                                <li>Ecological Modelling</li>
-                                <li>Ecological Informatics</li>
-                                <li>Systems Ecology</li>
-                                <li>Biodiversity</li>
+                                <li>Ecological Modelling & Systems Ecology</li>
+                                <li>Ecological Informatics & Machine Learning</li>
+                                <li>Biodiversity & Conservation Biology</li>
+                                <li>Ecological Networks</li>
                             </ul>
                         </div>
+
                         <div class="detail-item">
-                            <h3>
-                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,3,1,9l4,2.25V15a1,1,0,0,0,1,1h12a1,1,0,0,0,1-1V11.25L23,9ZM12,13.5,3,8.25,12,3l9,5.25Z"/></svg>
-                                Educational Qualifications
-                            </h3>
-                            <p><strong>Ph.D. in Zoology (2022)</strong><br><a href="https://www.visvabharati.ac.in/" target="_blank">Visva-Bharati University</a></p>
-                            <p><strong>M.Sc. in Zoology (2016)</strong><br><a href="https://www.visvabharati.ac.in/" target="_blank">Visva-Bharati University</a></p>
-                            <p><strong>B.Sc. in Zoology (2014)</strong><br><a href="https://www.durgapurgovtcollege.ac.in/" target="_blank">Durgapur Government College</a><br><em><a href="https://buruniv.ac.in/" target="_blank">The University of Burdwan</a></em></p>
-                            <p><strong>Advanced Diploma in Information Technology Applications (2013)</strong><br>Youth Computer Training Centre<br><em>Department of Youth Services, Govt. of West Bengal</em></p>
+                            <h3>Academic Qualifications</h3>
+                            <p><strong>PhD in Zoology (2022)</strong><br>
+                                <a href="http://www.visva-bharati.ac.in/" target="_blank" rel="noopener">Visva-Bharati University</a><br>
+                                <em>Thesis: Guanotrophication by aquatic avifauna on freshwater ecosystem dynamics</em></p>
+
+                            <p><strong>M.Sc. in Zoology (2016)</strong><br>
+                                <a href="http://www.visva-bharati.ac.in/" target="_blank" rel="noopener">Visva-Bharati University</a><br>
+                                <em>CGPA: 7.68/10</em></p>
+
+                            <p><strong>B.Sc. in Zoology (2014)</strong><br>
+                                <a href="https://www.buruniv.ac.in/" target="_blank" rel="noopener">The University of Burdwan</a><br>
+                                <em>First Division</em></p>
+
+                            <p><strong>Advanced Diploma in Information Technology Applications (2013)</strong><br> Youth Computer Training Centre<br>
+                                <em>Grade: A+</em></p>
                         </div>
+
                         <div class="detail-item">
-                            <h3>
-                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,3V5.5C3,5.5 5,7 5,9.5V21H19V9.5C19,7 21,5.5 21,5.5V3H3M6,5H18V5.5C18,5.5 16.6,6.5 16,7.2V9H8V7.2C7.4,6.5 6,5.5 6,5.5V5Z"/></svg>
-                                Postdoctoral Experience
-                            </h3>
-                             <p>
-                                <strong><a href="https://www.khu.ac.kr/eng/" target="_blank">Kyung Hee University, South Korea</a></strong><br>
-                                (October 2022 – December 2023)
-                            </p>
-                            <p>
-                                <strong><a href="https://www.iiserkol.ac.in/" target="_blank">Indian Institute of Science Education and Research (IISER) Kolkata</a></strong><br>
-                                (January 2024 – June 2024)
-                            </p>
+                            <h3>Current Projects</h3>
+                            <p><strong>Indian Grey Wolf Conservation</strong><br> Principal Investigator, WWF-India<br>
+                                <em>May 2024 - Oct 2025</em></p>
+
+                            <p><strong>Action Grant - Wolf Conservation</strong><br> Co-Principal Investigator, The Habitat Trust<br>
+                                <em>Mar 2025 - Feb 2027</em></p>
+
+                            <p><strong>Biodiversity Database</strong><br> Biodiversity of West Bengal<br>
+                                <em>Ongoing initiative with WINGS</em></p>
                         </div>
+
                         <div class="detail-item">
-                             <h3>
-                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,4H4A2,2,0,0,0,2,6V18a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V6A2,2,0,0,0,20,4Zm0,4L12,13,4,8V6l8,5,8-5Z"/></svg>
-                                 Contact Information
-                            </h3>
-                             <div class="info-line">
-                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,8l-8,5-8-5V6l8,5,8-5m0-2H4A2,2,0,0,0,2,6V18a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V6A2,2,0,0,0,20,4Z"/></svg>
-                                 <div><strong>Email:</strong> <a href="mailto:sagaradhurya@gmail.com">sagaradhurya@gmail.com</a></div>
-                             </div>
-                             <div class="info-line">
-                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62,10.79a15.45,15.45,0,0,0,6.59,6.59l2.2-2.2a.93.93,0,0,1,1-.24,11.36,11.36,0,0,0,3.57.57,1,1,0,0,1,1,1V20a1,1,0,0,1-1,1A17,17,0,0,1,3,4a1,1,0,0,1,1-1H7.5a1,1,0,0,1,1,1,11.36,11.36,0,0,0,.57,3.57.93.93,0,0,1-.24,1Z"/></svg>
-                                 <div><strong>Phone:</strong> <a href="tel:+918918856924">+91 8918856924</a></div>
-                             </div>
-                             <div class="info-line">
-                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33L12,22l7.74-8.67A10,10,0,0,0,12,2Zm0,12.5A2.5,2.5,0,1,1,14.5,12,2.5,2.5,0,0,1,12,14.5Z"/></svg>
-                                <div><strong>Office Address:</strong><br>Government General Degree College, Mangalkote, Purba Bardhaman-713132, West Bengal, India</div>
+                            <h3>Contact Information</h3>
+                            <ul class="contact-list">
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+                                    </svg>
+                                    <a href="mailto:sagaradhurya@gmail.com" aria-label="Email Dr. Sagar Adhurya">sagaradhurya@gmail.com</a>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.02.74-.25 1.02l-2.2 2.2z"/>
+                                    </svg>
+                                    <a href="tel:+918918856924" aria-label="Call Dr. Sagar Adhurya">+91 8918856924</a>
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                                        <path fill="#25D366" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                                    </svg>
+                                    <a href="https://wa.me/918918856924" target="_blank" rel="noopener" aria-label="WhatsApp Dr. Sagar Adhurya">WhatsApp</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-item">
+                            <h3>Academic Profiles</h3>
+                            <div class="social-icons">
+                                <a href="https://scholar.google.co.in/citations?user=sbyu0K0AAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar Profile">
+                                    <img src="https://scholar.google.co.in/favicon.ico" alt="Google Scholar">
+                                </a>
+                                <a href="https://www.researchgate.net/profile/Sagar-Adhurya" target="_blank" rel="noopener" title="ResearchGate" aria-label="ResearchGate Profile">
+                                    <img src="https://www.researchgate.net/_next-assets/images/favicon.ico" alt="ResearchGate">
+                                </a>
+                                <a href="https://orcid.org/0000-0003-0824-4678" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID Profile">
+                                    <img src="https://orcid.org/assets/icons/favicon.ico" alt="ORCID">
+                                </a>
+                                <a href="https://www.scopus.com/authid/detail.uri?authorId=57211148004" target="_blank" rel="noopener" title="Scopus" aria-label="Scopus Profile">
+                                    <img src="https://www.scopus.com/static/proteus-images/favicon.ico?ver=1.0" alt="Scopus">
+                                </a>
+                                <a href="https://www.webofscience.com/wos/author/record/AAH-4406-2021" target="_blank" rel="noopener" title="Web of Science" aria-label="Web of Science Profile">
+                                    <img src="https://www.webofscience.com/wos/static/favicon.png" alt="Web of Science">
+                                </a>
+                                <a href="https://loop.frontiersin.org/people/1628800/overview" target="_blank" rel="noopener" title="Loop" aria-label="Loop Profile">
+                                    <img src="https://loop.frontiersin.org/Content/v4/img/favicon.ico" alt="Loop">
+                                </a>
+                                <a href="https://github.com/SagarAdhurya" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub Profile">
+                                    <img src="https://github.com/fluidicon.png" alt="GitHub">
+                                </a>
                             </div>
                         </div>
-                         <div class="detail-item">
-                            <h3>
-                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9,12c0-1.71,1.39-3.1,3.1-3.1h4V7H7c-2.76,0-5,2.24-5,5s2.24,5,5,5h4v-1.9H7C5.29,15.1,3.9,13.71,3.9,12Zm8.1,2.9h-4V13h4Zm4-8H13v1.9h4c1.71,0,3.1,1.39,3.1,3.1s-1.39,3.1-3.1,3.1h-4V17h4c2.76,0-5,2.24,5-5S19.76,7,17,7Z"/></svg>
-                                External Links
-                            </h3>
-                            <ul>
-                                <li><a href="https://scholar.google.co.in/citations?user=sbyu0K0AAAAJ&hl=en" target="_blank">Google Scholar</a></li>
-                                <li><a href="https://www.researchgate.net/profile/Sagar-Adhurya" target="_blank">ResearchGate</a></li>
-                                <li><a href="https://orcid.org/0000-0003-0824-4678" target="_blank">ORCID</a></li>
-                            </ul>
+
+                        <div class="detail-item">
+                            <h3>Social Media</h3>
+                            <div class="social-icons">
+                                <a href="https://www.linkedin.com/in/sagar-adhurya-ph-d-2a8388109/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn Profile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#0077B5">
+                                        <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.facebook.com/sagar.adhurya" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook Profile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#1877F2">
+                                        <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://www.instagram.com/sagar.adhurya/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram Profile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <defs>
+                                            <linearGradient id="InstaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#f9ce34;stop-opacity:1" />
+                                                <stop offset="25%" style="stop-color:#ee2a7b;stop-opacity:1" />
+                                                <stop offset="50%" style="stop-color:#6228d7;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path fill="url(#InstaGradient)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
-                     </div>
+                    </div>
                 </section>
             </main>
-            
+
             <footer>
                 <div class="container">
-                    <p>&copy; <span id="current-year"></span> Dr. Sagar Adhurya. All Rights Reserved.</p>
+                    <p>&copy; <span id="current-year"></span> Dr. Sagar Adhurya. All Rights Reserved. | Passionate about Ecology & Conservation</p>
                 </div>
             </footer>
         </div>
     </div>
-    
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        const navToggle = document.querySelector('.mobile-nav-toggle');
-        const primaryNav = document.querySelector('nav');
+    <button id="backToTopBtn" title="Go to top">↑</button>
 
-        navToggle.addEventListener('click', () => {
-            primaryNav.classList.toggle('visible');
-            navToggle.classList.toggle('active');
-        });
-    </script>
+    <!-- External JS -->
+    <script src="script.js"></script>
+
+
 </body>
-</html>
 
+</html>
