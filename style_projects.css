@@ -1,4 +1,160 @@
-/* Additional styles for updated projects page */
+/* Projects Page Specific Styles */
+
+/* Project Stats Grid */
+.project-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
+    padding: 25px 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    border-left: 4px solid var(--accent-color);
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    border-left-color: var(--primary-color);
+}
+
+.stat-icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.stat-unit {
+    font-size: 1em;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-top: -5px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* Major Projects Grid */
+.major-projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-top: 30px;
+}
+
+.major-project-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    border-left: 5px solid var(--secondary-color);
+    transition: var(--transition);
+    position: relative;
+}
+
+.major-project-card.featured {
+    border-left-color: var(--primary-color);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.major-project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+}
+
+.project-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.project-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+.project-icon {
+    font-size: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: rgba(167, 201, 87, 0.1);
+    border-radius: 50%;
+}
+
+.project-meta h3 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.project-org {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.project-duration {
+    color: #666;
+    font-size: 0.95em;
+}
+
+.project-funding {
+    text-align: right;
+}
+
+.funding-role {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.project-description {
+    margin: 20px 0;
+}
+
+.project-description p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: #555;
+}
 
 /* Project Funders */
 .project-funders {
@@ -30,6 +186,58 @@
     font-weight: 500;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.project-objectives {
+    margin: 20px 0;
+}
+
+.project-objectives h5 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 1.1em;
+}
+
+.project-objectives ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-objectives li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    color: #555;
+}
+
+.project-objectives li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.project-status {
+    margin-top: 20px;
+}
+
+.status-badge {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-badge.ongoing {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-badge.completed {
+    background: #d1ecf1;
+    color: #0c5460;
 }
 
 /* Research Projects Grid */
@@ -126,25 +334,276 @@
     font-weight: bold;
 }
 
-/* Updated stats without funding amounts */
-.stat-card .stat-number {
-    font-size: 2.2em;
-    font-weight: bold;
-    color: var(--primary-color);
-    line-height: 1;
+/* Management Projects Grid */
+.management-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
 }
 
-.stat-card .stat-unit {
-    font-size: 1em;
+.management-project-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border-top: 4px solid var(--accent-color);
+    transition: var(--transition);
+}
+
+.management-project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.management-project-card .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+.management-project-card h4 {
+    color: var(--primary-color);
+    font-size: 1.2em;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.project-phases {
+    flex-shrink: 0;
+}
+
+.phase-badge {
+    background: var(--secondary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.project-details {
+    margin-bottom: 20px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    min-width: 80px;
+}
+
+.detail-value {
+    color: #555;
+    text-align: right;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.project-scope h5 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.project-scope p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+/* Biodiversity Projects Grid */
+.biodiversity-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.bio-project-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.bio-project-card.highlight {
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, rgba(167, 201, 87, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+.bio-project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.project-icon-large {
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+.bio-project-card h4 {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    margin-bottom: 8px;
+}
+
+.project-subtitle {
     color: var(--secondary-color);
     font-weight: 600;
-    margin-top: -5px;
+    margin-bottom: 20px;
 }
 
-/* Responsive updates */
+.project-features {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.feature-icon {
+    margin-right: 10px;
+    width: 20px;
+}
+
+.project-details-compact {
+    text-align: left;
+    margin: 15px 0;
+}
+
+.compact-detail {
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.project-deliverables {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.project-deliverables h5 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.project-deliverables ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-deliverables li {
+    margin-bottom: 6px;
+    padding-left: 15px;
+    position: relative;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.project-deliverables li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Impact Summary Grid */
+.impact-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.impact-category {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border-left: 4px solid var(--accent-color);
+    transition: var(--transition);
+}
+
+.impact-category:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    border-left-color: var(--primary-color);
+}
+
+.impact-header h4 {
+    color: var(--primary-color);
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.impact-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.impact-content li {
+    margin-bottom: 12px;
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.impact-content strong {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    .project-header {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .project-funding {
+        text-align: center;
+    }
+    
+    .project-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .management-projects-grid,
+    .biodiversity-projects-grid,
     .research-projects-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    .detail-value {
+        text-align: left;
+        margin-left: 0;
+        margin-top: 5px;
     }
     
     .funders-list {
@@ -155,5 +614,15 @@
         flex-direction: column;
         text-align: center;
         gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .impact-summary-grid {
+        grid-template-columns: 1fr;
     }
 }
