@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invited Talks - Dr. Sagar Adhurya</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Talks-specific styles inline to avoid conflicts */
+        
+        .talks-overview {
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%);
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            border-left-color: var(--primary-color);
+        }
+        
+        .stat-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .stat-number {
+            font-size: 2.1em;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+        
+        .stat-unit {
+            font-size: 1em;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-top: -4px;
+        }
+        
+        .stat-label {
+            font-size: 0.92em;
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        .talks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 28px;
+            margin-top: 30px;
+        }
+        
+        .talk-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--accent-color);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .talk-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            border-left-color: var(--primary-color);
+        }
+        
+        .talk-card.keynote {
+            border-left-color: var(--primary-color);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .talk-card.webinar {
+            border-left-color: var(--secondary-color);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .keynote-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 0.8em;
+            font-weight: 700;
+        }
+        
+        .webinar-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 0.8em;
+            font-weight: 700;
+        }
+        
+        .talk-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 18px;
+        }
+        
+        .talk-icon {
+            font-size: 2.8em;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(167, 201, 87, 0.1);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .talk-meta h3 {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin: 0 0 8px;
+            line-height: 1.3;
+        }
+        
+        .talk-event {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1.05em;
+            margin-bottom: 4px;
+        }
+        
+        .talk-organizer {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 4px;
+        }
+        
+        .talk-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .talk-type {
+            background: rgba(106, 153, 78, 0.1);
+            color: var(--secondary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        
+        .talk-details {
+            margin: 16px 0;
+            background: rgba(248, 249, 250, 0.8);
+            padding: 16px;
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        .talk-details h5 {
+            color: var(--primary-color);
+            margin: 0 0 10px;
+            font-size: 1.05em;
+        }
+        
+        .talk-details p {
+            margin: 0 0 8px;
+            font-size: 0.95em;
+            color: #555;
+        }
+        
+        .talk-audience {
+            background: rgba(167, 201, 87, 0.1);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .timeline-talks {
+            margin-top: 30px;
+        }
+        
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        
+        .timeline-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-top: 4px solid var(--accent-color);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .timeline-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 700;
+        }
+        
+        .timeline-card h4 {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            line-height: 1.3;
+            margin: 15px 0 10px;
+        }
+        
+        .timeline-organizer {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-details {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .talks-grid,
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+            .talk-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <nav>
+            <div class="nav-container">
+                <div class="nav-brand">Dr. Sagar Adhurya</div>
+                <a href="index.html">About Me</a>
+                <a href="research.html">Research Experience</a>
+                <a href="publications.html">Publications</a>
+                <a href="projects.html">Projects</a>
+                <a href="awards.html">Academic Achievements</a>
+                <a href="conferences.html">Conferences Attended</a>
+                <a href="workshops.html">Workshops Attended</a>
+                <a href="talks.html" class="active">Invited Talks</a>
+                <a href="teaching.html">Teaching</a>
+            </div>
+        </nav>
+
+        <button class="mobile-nav-toggle" aria-label="Open navigation">
+      <svg class="icon-hamburger" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+      </svg>
+    </button>
+
+        <div class="main-content">
+            <header>
+                <div class="container">
+                    <div class="header-content">
+                        <div class="header-info">
+                            <h1>Invited Talks</h1>
+                            <h2>Keynote Lectures • Expert Sessions • Webinars</h2>
+                            <h3>Sharing expertise in ecological modeling and biodiversity conservation</h3>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <div class="container">
+                    <!-- Overview -->
+                    <section id="talks-overview" class="loading talks-overview">
+                        <h2 class="section-title">Speaking Engagements Overview</h2>
+                        <p>Invited lectures and expert talks spanning biodiversity monitoring, ecological modeling, conservation science, and citizen science initiatives. Engaged audiences from academic institutions, research organizations, and government
+                            bodies across diverse platforms and venues.</p>
+
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">🎤</div>
+                                <div class="stat-number">7</div>
+                                <div class="stat-unit">Total</div>
+                                <div class="stat-label">Invited Talks</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🏛️</div>
+                                <div class="stat-number">5</div>
+                                <div class="stat-unit">Academic</div>
+                                <div class="stat-label">Institutions</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🌐</div>
+                                <div class="stat-number">2</div>
+                                <div class="stat-unit">Online</div>
+                                <div class="stat-label">Webinars</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🔬</div>
+                                <div class="stat-number">4</div>
+                                <div class="stat-unit">Research</div>
+                                <div class="stat-label">Topics</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Recent Talks (2022) -->
+                    <section id="recent-talks" class="loading">
+                        <h2 class="section-title">Recent Expert Lectures (2022)</h2>
+
+                        <div class="talks-grid">
+                            <div class="talk-card keynote">
+                                <div class="keynote-badge">Keynote</div>
+
+                                <div class="talk-header">
+                                    <div class="talk-icon">🔬</div>
+                                    <div class="talk-meta">
+                                        <h3>Biodiversity monitoring and Citizen Science</h3>
+                                        <div class="talk-event">One day Workshop on Biodiversity Monitoring and Citizen Science</div>
+                                        <div class="talk-organizer">Krishna Chandra College, Hetampur</div>
+                                        <div class="talk-date">August 17, 2022</div>
+                                        <div class="talk-type">Resource Person</div>
+                                    </div>
+                                </div>
+
+                                <div class="talk-details">
+                                    <h5>Lecture Focus</h5>
+                                    <p>Comprehensive overview of modern biodiversity monitoring techniques and the crucial role of citizen science in ecological research and conservation efforts.</p>
+                                </div>
+
+                                <div class="talk-audience">Academic Workshop</div>
+                            </div>
+
+                            <div class="talk-card keynote">
+                                <div class="keynote-badge">Keynote Series</div>
+
+                                <div class="talk-header">
+                                    <div class="talk-icon">🌊</div>
+                                    <div class="talk-meta">
+                                        <h3>Dynamic Modelling in Ecosystem Management</h3>
+                                        <div class="talk-event">Ecosystem Modelling: Towards Management of Inland Fisheries</div>
+                                        <div class="talk-organizer">ICAR-Central Inland Fisheries Research Institute, Kolkata</div>
+                                        <div class="talk-date">July 27 - August 2, 2022</div>
+                                        <div class="talk-type">Theory & Practical Sessions</div>
+                                    </div>
+                                </div>
+
+                                <div class="talk-details">
+                                    <h5>Lecture Series Focus</h5>
+                                    <p>Two comprehensive lectures covering theoretical foundations and practical applications of dynamic modeling in ecosystem management, specifically tailored for inland fisheries research.</p>
+                                </div>
+
+                                <div class="talk-audience">Research Training Program</div>
+                            </div>
+
+                            <div class="talk-card keynote">
+                                <div class="talk-header">
+                                    <div class="talk-icon">💻</div>
+                                    <div class="talk-meta">
+                                        <h3>Demonstration of STELLA software</h3>
+                                        <div class="talk-event">Six-day e-workshop on Statistical and Geospatial Techniques in Biology</div>
+                                        <div class="talk-organizer">Department of Conservation Biology and IQAC, Durgapur Government College</div>
+                                        <div class="talk-date">January 17, 2022</div>
+                                        <div class="talk-type">Software Training</div>
+                                    </div>
+                                </div>
+
+                                <div class="talk-details">
+                                    <h5>Workshop Focus</h5>
+                                    <p>Hands-on demonstration of STELLA software for systems thinking and dynamic modeling applications in biological and ecological research contexts.</p>
+                                </div>
+
+                                <div class="talk-audience">E-workshop Training</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Environmental & Conservation Talks -->
+                    <section id="environmental-talks" class="loading">
+                        <h2 class="section-title">Environmental & Conservation Lectures</h2>
+
+                        <div class="talks-grid">
+                            <div class="talk-card webinar">
+                                <div class="webinar-badge">Earth Day Webinar</div>
+
+                                <div class="talk-header">
+                                    <div class="talk-icon">🌱</div>
+                                    <div class="talk-meta">
+                                        <h3>Greener ECL</h3>
+                                        <div class="talk-event">Restoration of Mining Environment - a way forward</div>
+                                        <div class="talk-organizer">Environment Department, Eastern Coalfield Limited</div>
+                                        <div class="talk-date">April 22, 2021</div>
+                                        <div class="talk-type">World Earth Day Webinar</div>
+                                    </div>
+                                </div>
+
+                                <div class="talk-details">
+                                    <h5>Webinar Context</h5>
+                                    <p>Special lecture delivered during World Earth Day celebrations as part of 'Bharat ka Amrit Mahotsav' to celebrate 75 years of Independence, focusing on sustainable mining practices and environmental restoration.</p>
+                                </div>
+
+                                <div class="talk-audience">Corporate Environmental Initiative</div>
+                            </div>
+
+                            <div class="talk-card">
+                                <div class="talk-header">
+                                    <div class="talk-icon">🦅</div>
+                                    <div class="talk-meta">
+                                        <h3>Ethical Birding</h3>
+                                        <div class="talk-event">WCM Seminar</div>
+                                        <div class="talk-organizer">Wildlife Conservation Murshidabad</div>
+                                        <div class="talk-date">November 17, 2018</div>
+                                        <div class="talk-type">Conservation Seminar</div>
+                                    </div>
+                                </div>
+
+                                <div class="talk-details">
+                                    <h5>Lecture Focus</h5>
+                                    <p><strong>Venue:</strong> Rabindra Sadan, RN Tagore Road, Berhampore, West Bengal</p>
+                                    <p>Comprehensive discussion on ethical practices in birdwatching, responsible wildlife observation, and conservation-oriented birding methodologies.</p>
+                                </div>
+
+                                <div class="talk-audience">Conservation Community</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Citizen Science & Training Talks -->
+                    <section id="training-talks" class="loading">
+                        <h2 class="section-title">Citizen Science & Training Programs</h2>
+
+                        <div class="talks-grid">
+                            <div class="talk-card">
+                                <div class="talk-header">
+                                    <div class="talk-icon">📱</div>
+                                    <div class="talk-meta">
+                                        <h3>eBird Workshop and Basics of Birding</h3>
+                                        <div class="talk-event">Department Guest Lecture</div>
+                                        <div class="talk-organizer">Department of Zoology, Krishnath College, Berhampore</div>
+                                        <div class="talk-date">October 4, 2018</div>
+                                        <div class="talk-type">Educational Outreach</div>
+                                    </div>
+                                </div>
+
+                                <div class="talk-details">
+                                    <h5>Workshop Focus</h5>
+                                    <p>Training session on eBird platform usage, citizen science participation in ornithological research, and fundamental birdwatching techniques for students and faculty.</p>
+                                </div>
+
+                                <div class="talk-audience">Academic Department</div>
+                            </div>
+
+                            <div class="talk-card">
+                                <div class="talk-header">
+                                    <div class="talk-icon">📷</div>
+                                    <div class="talk-meta">
+                                        <h3>eBird Workshop</h3>
+                                        <div class="talk-event">Bird Survey and Wildlife Photography</div>
+                                        <div class="talk-organizer">Departments of Zoology, Botany and Conservation Biology, Durgapur Government College</div>
+                                        <div class="talk-date">February 15, 2017</div>
+                                        <div class="talk-type">Know Your Campus Program</div>
+                                    </div>
+                                </div>
+
+                                <div class="talk-details">
+                                    <h5>Workshop Context</h5>
+                                    <p>One-day interdisciplinary workshop combining eBird training with wildlife photography techniques as part of campus biodiversity awareness and documentation program.</p>
+                                </div>
+
+                                <div class="talk-audience">Campus Community</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Timeline Overview -->
+                    <section id="talks-timeline" class="loading">
+                        <h2 class="section-title">Speaking Engagement Timeline</h2>
+
+                        <div class="timeline-talks">
+                            <div class="timeline-grid">
+                                <div class="timeline-card">
+                                    <div class="timeline-year">2022</div>
+                                    <h4>Professional Training & Biodiversity Monitoring</h4>
+                                    <div class="timeline-organizer">Academic Institutions & Research Organizations</div>
+                                    <div class="timeline-details">
+                                        Peak year of invited lectures including keynote sessions on citizen science, dynamic modeling for fisheries research, and STELLA software demonstrations across multiple prestigious institutions.
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card">
+                                    <div class="timeline-year">2021</div>
+                                    <h4>Environmental Restoration & Mining</h4>
+                                    <div class="timeline-organizer">Eastern Coalfield Limited</div>
+                                    <div class="timeline-details">
+                                        Special World Earth Day webinar on sustainable mining practices and environmental restoration as part of national independence celebration initiatives.
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card">
+                                    <div class="timeline-year">2018</div>
+                                    <h4>Wildlife Conservation & Ethical Practices</h4>
+                                    <div class="timeline-organizer">Wildlife Conservation Organizations</div>
+                                    <div class="timeline-details">
+                                        Expert lectures on ethical birding practices and eBird platform training for academic departments and conservation communities across West Bengal.
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card">
+                                    <div class="timeline-year">2017</div>
+                                    <h4>Campus Biodiversity Awareness</h4>
+                                    <div class="timeline-organizer">Durgapur Government College</div>
+                                    <div class="timeline-details">
+                                        Inaugural campus biodiversity program combining citizen science training with wildlife photography workshops for interdisciplinary student and faculty engagement.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+
+            <footer>
+                <div class="container">
+                    <p>&copy; <span id="current-year">2025</span> Dr. Sagar Adhurya. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+    <script src="script.js"></script>
+</body>
+
+</html>

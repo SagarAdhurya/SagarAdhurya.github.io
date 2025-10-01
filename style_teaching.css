@@ -1,0 +1,96 @@
+/* style_teaching.css */
+
+.teaching-overview {
+    background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%);
+    border-left: 5px solid var(--accent-color);
+}
+
+.position-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius);
+    padding: 35px;
+    box-shadow: var(--box-shadow);
+    border-left: 5px solid var(--accent-color);
+    transition: var(--transition);
+    margin: 30px 0;
+}
+
+.position-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    border-left-color: var(--primary-color);
+}
+
+.position-title {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.position-institution {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 6px;
+}
+
+.position-duration {
+    color: #666;
+    font-size: 0.95em;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.subject-card {
+    background: rgba(248, 249, 250, 0.9);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--accent-color);
+    margin: 20px 0;
+    transition: var(--transition);
+}
+
+.subject-card:hover {
+    background: rgba(255, 255, 255, 1);
+    border-left-color: var(--secondary-color);
+}
+
+.subject-name {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.unit-header {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.0em;
+    margin: 15px 0 8px;
+    padding: 8px 12px;
+    background: rgba(167, 201, 87, 0.08);
+    border-radius: 6px;
+}
+
+.unit-content {
+    color: #555;
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin: 8px 0;
+    padding-left: 15px;
+}
+
+.practical-section {
+    background: rgba(167, 201, 87, 0.05);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(167, 201, 87, 0.2);
+    margin-top: 20px;
+}
+
+.practical-section h5 {
+    color: var(--primary-color);
+    margin: 0 0 15px;
+    font-size: 1.1em;
+}

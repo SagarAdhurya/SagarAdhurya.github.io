@@ -1,0 +1,270 @@
+
+        /* Conference-specific styles inline to avoid conflicts */
+        
+        .conferences-overview {
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%);
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            border-left-color: var(--primary-color);
+        }
+        
+        .stat-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .stat-number {
+            font-size: 2.1em;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+        
+        .stat-unit {
+            font-size: 1em;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-top: -4px;
+        }
+        
+        .stat-label {
+            font-size: 0.92em;
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        .conferences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 28px;
+            margin-top: 30px;
+        }
+        
+        .conference-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--accent-color);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .conference-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            border-left-color: var(--primary-color);
+        }
+        
+        .conference-card.international {
+            border-left-color: var(--primary-color);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .conference-card.award-winner {
+            border-left-color: #d4af37;
+            position: relative;
+        }
+        
+        .award-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #d4af37;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 0.8em;
+            font-weight: 700;
+        }
+        
+        .conference-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 18px;
+        }
+        
+        .conference-icon {
+            font-size: 2.8em;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(167, 201, 87, 0.1);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .conference-meta h3 {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin: 0 0 8px;
+            line-height: 1.3;
+        }
+        
+        .conference-event {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1.05em;
+            margin-bottom: 4px;
+        }
+        
+        .conference-location {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 4px;
+        }
+        
+        .conference-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .conference-type {
+            background: rgba(106, 153, 78, 0.1);
+            color: var(--secondary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        
+        .conference-organizer {
+            margin: 16px 0;
+            background: rgba(248, 249, 250, 0.8);
+            padding: 16px;
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        .conference-organizer h5 {
+            color: var(--primary-color);
+            margin: 0 0 8px;
+            font-size: 1.05em;
+        }
+        
+        .conference-organizer p {
+            margin: 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+        
+        .presentation-type {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+        
+        .poster-type {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+        }
+        
+        .timeline-conferences {
+            margin-top: 30px;
+        }
+        
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        
+        .timeline-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-top: 4px solid var(--accent-color);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .timeline-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 700;
+        }
+        
+        .timeline-card h4 {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            line-height: 1.3;
+            margin: 15px 0 10px;
+        }
+        
+        .timeline-event {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-details {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .conferences-grid,
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+            .conference-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
