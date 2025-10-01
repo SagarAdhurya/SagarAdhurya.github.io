@@ -170,6 +170,56 @@
       margin: 0;
       flex: 1;
     }
+
+    /* Clickable publication title styles */
+    .publication-title-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: var(--transition);
+      display: block;
+      position: relative;
+      padding-right: 25px;
+    }
+
+    .publication-title-link:hover {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    .publication-title-link::after {
+      content: '🔗';
+      position: absolute;
+      right: 0;
+      top: 0;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: var(--transition);
+      font-size: 0.8em;
+    }
+
+    .publication-title-link:hover::after {
+      opacity: 0.7;
+      transform: translateX(0);
+    }
+
+    /* Clickable citation title styles */
+    .citation-title-link {
+      color: var(--text-color);
+      text-decoration: none;
+      transition: var(--transition);
+      border-bottom: 1px dotted transparent;
+    }
+
+    .citation-title-link:hover {
+      color: var(--primary-color);
+      text-decoration: none;
+      border-bottom-color: var(--primary-color);
+    }
+
+    /* Hover effect for publication cards with clickable titles */
+    .publication-card:has(.publication-title-link):hover {
+      border-color: var(--secondary-color);
+    }
     
     .publication-badges {
       display: flex;
@@ -418,6 +468,14 @@
         font-size: 0.8em;
         padding: 8px 15px;
       }
+
+      .publication-title-link::after {
+        display: none;
+      }
+      
+      .publication-title-link:hover::after {
+        display: none;
+      }
     }
     
     @media (max-width: 480px) {
@@ -431,6 +489,10 @@
       
       .publication-title {
         font-size: 1.15em;
+      }
+
+      .publication-title-link {
+        padding-right: 0;
       }
     }
   </style>

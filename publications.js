@@ -1,4 +1,4 @@
-// publications.js - Comprehensive publications management system
+// publications.js - Enhanced version with clickable titles
 class PublicationManager {
     constructor() {
         this.publications = [];
@@ -131,12 +131,29 @@ class PublicationManager {
         );
     }
 
-    formatLink(pub) {
-        if (!pub.link) return '';
+    // Enhanced function to create clickable title
+    formatTitle(title, link) {
+        if (!title) return '';
         
-        if (pub.link.startsWith('https://')) {
-            // Direct link (usually DOI)
-            if (pub.doi && pub.doi.startsWith('10.')) {
+        // Clean up the title
+        const cleanTitle = title.replace(/^"|"$/g, '');
+        
+        if (link && link.trim() && link.toLowerCase() !== 'na') {
+            // Make title clickable if link exists
+            return `<a href="${link}" target="_blank" class="publication-title-link">${cleanTitle}</a>`;
+        } else {
+            // Return non-clickable title
+            return cleanTitle;
+        }
+    }
+
+    // Enhanced function to format DOI/link buttons (keeping existing functionality)
+    formatLink(pub) {
+        if (!pub.link || pub.link.toLowerCase() === 'na') return '';
+        
+        if (pub.link.startsWith('https://') || pub.link.startsWith('http://')) {
+            // Direct link
+            if (pub.doi && pub.doi.startsWith('10.') && pub.doi.toLowerCase() !== 'na') {
                 return `<a href="${pub.link}" target="_blank" class="doi-link">📄 DOI: ${pub.doi}</a>`;
             } else {
                 return `<a href="${pub.link}" target="_blank" class="article-link">🔗 View Article</a>`;
@@ -203,11 +220,12 @@ class PublicationManager {
                 const citationCount = this.getCitationCount(pub.id);
                 const citations = this.getCitations(pub.id);
                 const linkHtml = this.formatLink(pub);
+                const titleHtml = this.formatTitle(pub.title, pub.link);
 
                 html += `
                 <div class="publication-card" data-category="${pub.category}" data-pub-id="${pub.id}">
                     <div class="publication-header">
-                        <h4 class="publication-title">${pub.title}</h4>
+                        <h4 class="publication-title">${titleHtml}</h4>
                         <div class="publication-badges">
                             <span class="publication-type">${pub.type || 'Article'}</span>
                             <span class="publication-category">${pub.category || 'Research'}</span>
@@ -249,12 +267,16 @@ class PublicationManager {
         
         let html = '<h5>📚 Cited by:</h5><ul class="citations">';
         citations.forEach(citation => {
+            // Format citation title as clickable if link exists
+            const citationTitleHtml = this.formatCitationTitle(citation.title, citation.link);
+            
+            // Handle DOI link separately
             const doiLink = citation.doi && citation.doi !== 'NA' && citation.link ? 
                 `<a href="${citation.link}" target="_blank" class="citation-doi">DOI</a>` : '';
             
             html += `<li class="citation-item">
                 <div class="citation-authors">${citation.author} (${citation.year})</div>
-                <div class="citation-title">"${citation.title}"</div>
+                <div class="citation-title">${citationTitleHtml}</div>
                 <div class="citation-journal">
                     <em>${citation.journal_book}</em>
                     ${doiLink}
@@ -263,6 +285,19 @@ class PublicationManager {
         });
         html += '</ul>';
         return html;
+    }
+
+    // New function to format citation titles as clickable
+    formatCitationTitle(title, link) {
+        if (!title) return '';
+        
+        const cleanTitle = `"${title.replace(/^"|"$/g, '')}"`;
+        
+        if (link && link.trim() && link.toLowerCase() !== 'na') {
+            return `<a href="${link}" target="_blank" class="citation-title-link">${cleanTitle}</a>`;
+        } else {
+            return cleanTitle;
+        }
     }
 
     groupByYear(publications) {
