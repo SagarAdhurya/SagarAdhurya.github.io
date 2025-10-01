@@ -1,4 +1,4 @@
-// publications.js - Enhanced version with metrics calculation and improved citation styling
+// publications.js - CORRECTED version with proper metrics and citation formatting
 class PublicationManager {
     constructor() {
         this.publications = [];
@@ -43,6 +43,7 @@ class PublicationManager {
             this.initializeFilters();
 
             console.log(`Loaded ${this.publications.length} publications and ${this.citations.length} citations`);
+            console.log(`H-index: ${this.calculateHIndex()}, i10-index: ${this.calculateI10Index()}, First-authored: ${this.calculateFirstAuthoredCount()}`);
 
         } catch (error) {
             console.error('Error loading data:', error);
@@ -217,13 +218,24 @@ class PublicationManager {
         const i10Index = this.calculateI10Index();
         const firstAuthoredCount = this.calculateFirstAuthoredCount();
 
-        document.getElementById('total-publications').textContent = totalPubs;
-        document.getElementById('total-citations').textContent = totalCitations;
-        document.getElementById('h-index').textContent = hIndex;
-        document.getElementById('i10-index').textContent = i10Index;
-        document.getElementById('first-authored').textContent = firstAuthoredCount;
-        document.getElementById('research-areas').textContent = categories.length;
-        document.getElementById('years-active').textContent = yearsActive;
+        // Set all the values
+        const setStatValue = (id, value) => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = value;
+                console.log(`Set ${id} to ${value}`);
+            } else {
+                console.error(`Element with id '${id}' not found`);
+            }
+        };
+
+        setStatValue('total-publications', totalPubs);
+        setStatValue('total-citations', totalCitations);
+        setStatValue('h-index', hIndex);
+        setStatValue('i10-index', i10Index);
+        setStatValue('first-authored', firstAuthoredCount);
+        setStatValue('research-areas', categories.length);
+        setStatValue('years-active', yearsActive);
     }
 
     renderCategoryFilters() {
@@ -319,19 +331,15 @@ class PublicationManager {
             // Format citation title as clickable if link exists
             const citationTitleHtml = this.formatCitationTitle(citation.title, citation.link);
             
-            html += `<div class="citation-item-new">
-                <div class="citation-main-title">
-                    ${citationTitleHtml} <span class="citation-year">(${citation.year})</span>
+            html += `<div class="citation-item-corrected">
+                <div class="citation-title-main">
+                    ${citationTitleHtml} (${citation.year})
                 </div>
-                <div class="citation-details">
-                    <div class="citation-journal-info">
-                        <em>${citation.journal_book}</em>
-                        ${citation.doi && citation.doi !== 'NA' && citation.link ? `
-                            <a href="${citation.link}" target="_blank" class="citation-doi-new">DOI: ${citation.doi}</a>
-                        ` : ''}
-                    </div>
-                    <div class="citation-authors-info">${citation.author}</div>
-                </div>
+                <div class="citation-authors">${citation.author}</div>
+                <div class="citation-journal"><em>${citation.journal_book}</em></div>
+                ${citation.doi && citation.doi !== 'NA' ? `
+                    <div class="citation-doi">DOI: ${citation.doi}</div>
+                ` : ''}
             </div>`;
         });
         html += '</div>';
@@ -342,10 +350,10 @@ class PublicationManager {
     formatCitationTitle(title, link) {
         if (!title) return '';
         
-        const cleanTitle = `"${title.replace(/^"|"$/g, '')}"`;
+        const cleanTitle = title.replace(/^"|"$/g, '');
         
         if (link && link.trim() && link.toLowerCase() !== 'na') {
-            return `<a href="${link}" target="_blank" class="citation-title-link-new">${cleanTitle}</a>`;
+            return `<a href="${link}" target="_blank" class="citation-title-link">${cleanTitle}</a>`;
         } else {
             return cleanTitle;
         }

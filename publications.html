@@ -14,14 +14,14 @@
     
     .publications-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
       margin: 30px 0;
     }
     
     .stat-item {
       background: rgba(255, 255, 255, 0.95);
-      padding: 20px 15px;
+      padding: 18px 12px;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
       text-align: center;
@@ -36,7 +36,7 @@
     }
     
     .stat-number {
-      font-size: 2.2em;
+      font-size: 2em;
       font-weight: bold;
       color: var(--primary-color);
       margin-bottom: 5px;
@@ -45,7 +45,7 @@
     
     .stat-label {
       color: #666;
-      font-size: 0.85em;
+      font-size: 0.8em;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -212,84 +212,63 @@
       transform: translateX(0);
     }
 
-    /* Enhanced citation styling */
-    .citation-item-new {
+    /* CORRECTED CITATION STYLING - Exactly as requested */
+    .citation-item-corrected {
       background: rgba(248, 249, 250, 0.9);
       padding: 20px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       border-radius: var(--border-radius);
       border-left: 4px solid var(--accent-color);
       transition: var(--transition);
     }
 
-    .citation-item-new:hover {
+    .citation-item-corrected:hover {
       background: rgba(255, 255, 255, 0.95);
       transform: translateX(5px);
       border-left-color: var(--primary-color);
     }
 
-    .citation-main-title {
-      font-size: 1.15em;
+    /* Citation title - Large and colorful font with hyperlink */
+    .citation-title-main {
+      font-size: 1.3em;
       font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 10px;
+      color: #2563eb;
+      margin-bottom: 12px;
       line-height: 1.4;
     }
 
-    .citation-title-link-new {
-      color: var(--primary-color);
+    .citation-title-link {
+      color: #2563eb;
       text-decoration: none;
       transition: var(--transition);
-      border-bottom: 1px dotted transparent;
     }
 
-    .citation-title-link-new:hover {
-      color: var(--secondary-color);
-      text-decoration: none;
-      border-bottom-color: var(--secondary-color);
+    .citation-title-link:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
     }
 
-    .citation-year {
-      color: var(--secondary-color);
-      font-weight: 700;
+    /* Author names */
+    .citation-authors {
+      color: #374151;
+      font-size: 1em;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    /* Journal name */
+    .citation-journal {
+      color: #6b7280;
       font-size: 0.95em;
-    }
-
-    .citation-details {
-      margin-top: 8px;
-    }
-
-    .citation-journal-info {
-      color: #666;
-      font-size: 0.95em;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .citation-authors-info {
-      color: #777;
-      font-size: 0.9em;
       font-style: italic;
+      margin-bottom: 8px;
     }
 
-    .citation-doi-new {
-      background: var(--accent-color);
-      color: var(--primary-color);
-      padding: 4px 10px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 0.8em;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-
-    .citation-doi-new:hover {
-      background: var(--primary-color);
-      color: white;
-      transform: translateY(-1px);
+    /* DOI */
+    .citation-doi {
+      color: #059669;
+      font-size: 0.9em;
+      font-weight: 500;
     }
 
     .citations-container {
@@ -464,7 +443,7 @@
       }
       
       .stat-number {
-        font-size: 1.8em;
+        font-size: 1.6em;
       }
       
       .publication-header {
@@ -500,10 +479,8 @@
         display: none;
       }
 
-      .citation-journal-info {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
+      .citation-title-main {
+        font-size: 1.15em;
       }
     }
     
@@ -524,8 +501,8 @@
         padding-right: 0;
       }
 
-      .citation-main-title {
-        font-size: 1.05em;
+      .citation-title-main {
+        font-size: 1.1em;
       }
     }
   </style>
