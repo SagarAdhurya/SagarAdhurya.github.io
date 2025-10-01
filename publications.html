@@ -14,14 +14,14 @@
     
     .publications-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
       margin: 30px 0;
     }
     
     .stat-item {
       background: rgba(255, 255, 255, 0.95);
-      padding: 25px 20px;
+      padding: 20px 15px;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
       text-align: center;
@@ -36,18 +36,28 @@
     }
     
     .stat-number {
-      font-size: 2.5em;
+      font-size: 2.2em;
       font-weight: bold;
       color: var(--primary-color);
-      margin-bottom: 8px;
+      margin-bottom: 5px;
       line-height: 1;
     }
     
     .stat-label {
       color: #666;
-      font-size: 0.95em;
+      font-size: 0.85em;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+    }
+    
+    /* Special highlighting for academic metrics */
+    .stat-item.highlight {
+      border-left-color: #d4af37;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
+    }
+    
+    .stat-item.highlight .stat-number {
+      color: #b8860b;
     }
     
     .category-filter {
@@ -202,18 +212,88 @@
       transform: translateX(0);
     }
 
-    /* Clickable citation title styles */
-    .citation-title-link {
-      color: var(--text-color);
+    /* Enhanced citation styling */
+    .citation-item-new {
+      background: rgba(248, 249, 250, 0.9);
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--accent-color);
+      transition: var(--transition);
+    }
+
+    .citation-item-new:hover {
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateX(5px);
+      border-left-color: var(--primary-color);
+    }
+
+    .citation-main-title {
+      font-size: 1.15em;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .citation-title-link-new {
+      color: var(--primary-color);
       text-decoration: none;
       transition: var(--transition);
       border-bottom: 1px dotted transparent;
     }
 
-    .citation-title-link:hover {
-      color: var(--primary-color);
+    .citation-title-link-new:hover {
+      color: var(--secondary-color);
       text-decoration: none;
-      border-bottom-color: var(--primary-color);
+      border-bottom-color: var(--secondary-color);
+    }
+
+    .citation-year {
+      color: var(--secondary-color);
+      font-weight: 700;
+      font-size: 0.95em;
+    }
+
+    .citation-details {
+      margin-top: 8px;
+    }
+
+    .citation-journal-info {
+      color: #666;
+      font-size: 0.95em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .citation-authors-info {
+      color: #777;
+      font-size: 0.9em;
+      font-style: italic;
+    }
+
+    .citation-doi-new {
+      background: var(--accent-color);
+      color: var(--primary-color);
+      padding: 4px 10px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 0.8em;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .citation-doi-new:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .citations-container {
+      margin-top: 15px;
     }
 
     /* Hover effect for publication cards with clickable titles */
@@ -350,63 +430,6 @@
       gap: 8px;
     }
     
-    .citations {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .citation-item {
-      background: rgba(248, 249, 250, 0.8);
-      padding: 15px;
-      margin-bottom: 12px;
-      border-radius: var(--border-radius);
-      border-left: 3px solid var(--accent-color);
-      transition: var(--transition);
-    }
-    
-    .citation-item:hover {
-      background: rgba(255, 255, 255, 0.9);
-      transform: translateX(5px);
-    }
-    
-    .citation-authors {
-      color: var(--primary-color);
-      font-weight: 600;
-      font-size: 0.9em;
-      margin-bottom: 5px;
-    }
-    
-    .citation-title {
-      color: var(--text-color);
-      font-size: 0.95em;
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-    
-    .citation-journal {
-      color: #666;
-      font-size: 0.85em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .citation-doi {
-      background: var(--accent-color);
-      color: var(--primary-color);
-      padding: 3px 8px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 0.75em;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-    
-    .citation-doi:hover {
-      background: var(--primary-color);
-      color: white;
-    }
-    
     .loading-spinner {
       display: flex;
       justify-content: center;
@@ -441,7 +464,7 @@
       }
       
       .stat-number {
-        font-size: 2em;
+        font-size: 1.8em;
       }
       
       .publication-header {
@@ -476,6 +499,12 @@
       .publication-title-link:hover::after {
         display: none;
       }
+
+      .citation-journal-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -493,6 +522,10 @@
 
       .publication-title-link {
         padding-right: 0;
+      }
+
+      .citation-main-title {
+        font-size: 1.05em;
       }
     }
   </style>
@@ -550,6 +583,18 @@
               <div class="stat-item">
                 <div class="stat-number" id="total-citations">-</div>
                 <div class="stat-label">Total Citations</div>
+              </div>
+              <div class="stat-item highlight">
+                <div class="stat-number" id="h-index">-</div>
+                <div class="stat-label">h-index</div>
+              </div>
+              <div class="stat-item highlight">
+                <div class="stat-number" id="i10-index">-</div>
+                <div class="stat-label">i10-index</div>
+              </div>
+              <div class="stat-item highlight">
+                <div class="stat-number" id="first-authored">-</div>
+                <div class="stat-label">First Authored</div>
               </div>
               <div class="stat-item">
                 <div class="stat-number" id="research-areas">-</div>

@@ -1,4 +1,4 @@
-// publications.js - Enhanced version with clickable titles
+// publications.js - Enhanced version with metrics calculation and improved citation styling
 class PublicationManager {
     constructor() {
         this.publications = [];
@@ -28,6 +28,9 @@ class PublicationManager {
             }
             const citText = await citResponse.text();
             this.citations = this.parseCitationsCSV(citText);
+
+            // Calculate citation counts for each publication
+            this.calculateCitationCounts();
 
             // Initialize filtered publications
             this.filteredPublications = [...this.publications];
@@ -119,16 +122,54 @@ class PublicationManager {
         return result;
     }
 
+    calculateCitationCounts() {
+        // Calculate citation count for each publication
+        this.publications.forEach(pub => {
+            pub.citationCount = this.citations.filter(citation => 
+                citation.id === pub.id.toString()
+            ).length;
+        });
+    }
+
     getCitationCount(publicationId) {
-        return this.citations.filter(citation => 
-            citation.id === publicationId.toString()
-        ).length;
+        const pub = this.publications.find(p => p.id === publicationId.toString());
+        return pub ? pub.citationCount : 0;
     }
 
     getCitations(publicationId) {
         return this.citations.filter(citation => 
             citation.id === publicationId.toString()
         );
+    }
+
+    // Calculate h-index
+    calculateHIndex() {
+        const citationCounts = this.publications.map(pub => pub.citationCount || 0);
+        const sortedCounts = citationCounts.sort((a, b) => b - a);
+        
+        let hIndex = 0;
+        for (let i = 0; i < sortedCounts.length; i++) {
+            if (sortedCounts[i] >= i + 1) {
+                hIndex = i + 1;
+            } else {
+                break;
+            }
+        }
+        return hIndex;
+    }
+
+    // Calculate i10-index
+    calculateI10Index() {
+        return this.publications.filter(pub => (pub.citationCount || 0) >= 10).length;
+    }
+
+    // Calculate first-authored articles
+    calculateFirstAuthoredCount() {
+        return this.publications.filter(pub => {
+            if (!pub.authors) return false;
+            const firstAuthor = pub.authors.trim().split(',')[0].trim();
+            return firstAuthor === 'Adhurya, S.' || firstAuthor === 'Adhurya, S';
+        }).length;
     }
 
     // Enhanced function to create clickable title
@@ -171,8 +212,16 @@ class PublicationManager {
         const years = this.publications.map(p => parseInt(p.year)).filter(y => !isNaN(y));
         const yearsActive = years.length > 0 ? Math.max(...years) - Math.min(...years) + 1 : 0;
 
+        // Calculate new metrics
+        const hIndex = this.calculateHIndex();
+        const i10Index = this.calculateI10Index();
+        const firstAuthoredCount = this.calculateFirstAuthoredCount();
+
         document.getElementById('total-publications').textContent = totalPubs;
         document.getElementById('total-citations').textContent = totalCitations;
+        document.getElementById('h-index').textContent = hIndex;
+        document.getElementById('i10-index').textContent = i10Index;
+        document.getElementById('first-authored').textContent = firstAuthoredCount;
         document.getElementById('research-areas').textContent = categories.length;
         document.getElementById('years-active').textContent = yearsActive;
     }
@@ -217,7 +266,7 @@ class PublicationManager {
                 </h3>`;
 
             yearPubs.forEach(pub => {
-                const citationCount = this.getCitationCount(pub.id);
+                const citationCount = pub.citationCount || 0;
                 const citations = this.getCitations(pub.id);
                 const linkHtml = this.formatLink(pub);
                 const titleHtml = this.formatTitle(pub.title, pub.link);
@@ -265,36 +314,38 @@ class PublicationManager {
     renderCitationsList(citations) {
         if (citations.length === 0) return '';
         
-        let html = '<h5>📚 Cited by:</h5><ul class="citations">';
+        let html = '<h5>📚 Cited by:</h5><div class="citations-container">';
         citations.forEach(citation => {
             // Format citation title as clickable if link exists
             const citationTitleHtml = this.formatCitationTitle(citation.title, citation.link);
             
-            // Handle DOI link separately
-            const doiLink = citation.doi && citation.doi !== 'NA' && citation.link ? 
-                `<a href="${citation.link}" target="_blank" class="citation-doi">DOI</a>` : '';
-            
-            html += `<li class="citation-item">
-                <div class="citation-authors">${citation.author} (${citation.year})</div>
-                <div class="citation-title">${citationTitleHtml}</div>
-                <div class="citation-journal">
-                    <em>${citation.journal_book}</em>
-                    ${doiLink}
+            html += `<div class="citation-item-new">
+                <div class="citation-main-title">
+                    ${citationTitleHtml} <span class="citation-year">(${citation.year})</span>
                 </div>
-            </li>`;
+                <div class="citation-details">
+                    <div class="citation-journal-info">
+                        <em>${citation.journal_book}</em>
+                        ${citation.doi && citation.doi !== 'NA' && citation.link ? `
+                            <a href="${citation.link}" target="_blank" class="citation-doi-new">DOI: ${citation.doi}</a>
+                        ` : ''}
+                    </div>
+                    <div class="citation-authors-info">${citation.author}</div>
+                </div>
+            </div>`;
         });
-        html += '</ul>';
+        html += '</div>';
         return html;
     }
 
-    // New function to format citation titles as clickable
+    // Enhanced function to format citation titles as clickable
     formatCitationTitle(title, link) {
         if (!title) return '';
         
         const cleanTitle = `"${title.replace(/^"|"$/g, '')}"`;
         
         if (link && link.trim() && link.toLowerCase() !== 'na') {
-            return `<a href="${link}" target="_blank" class="citation-title-link">${cleanTitle}</a>`;
+            return `<a href="${link}" target="_blank" class="citation-title-link-new">${cleanTitle}</a>`;
         } else {
             return cleanTitle;
         }
