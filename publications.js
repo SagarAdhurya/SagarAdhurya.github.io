@@ -165,13 +165,14 @@ class PublicationManager {
     }
 
     // Calculate first-authored articles
-    calculateFirstAuthoredCount() {
-        return this.publications.filter(pub => {
-            if (!pub.authors) return false;
-            const firstAuthor = pub.authors.trim().split(',')[0].trim();
-            return firstAuthor === 'Adhurya, S.' || firstAuthor === 'Adhurya, S';
-        }).length;
-    }
+calculateFirstAuthoredCount() {
+  return this.publications.filter(pub => {
+    if (!pub.authors) return false;
+    const firstAuthor = pub.authors.split(',')[0].toLowerCase();
+    return firstAuthor.includes('adhurya');
+  }).length;
+}
+
 
     // Enhanced function to create clickable title
     formatTitle(title, link) {
