@@ -28,8 +28,31 @@
 </head>
 
 <body>
-    
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2c5530">
+            <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/>
+        </svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2c5530">
+            <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+        </svg>
+    </button>
+
     <div class="page-wrapper">
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">Dr. Sagar Adhurya</div>
+                <a href="#about" class="active">About Me</a>
+                <a href="research.html">Research Experience</a>
+                <a href="publications.html">Publications</a>
+                <a href="projects.html">Projects</a>
+                <a href="awards.html">Academic Achievements</a>
+                <a href="conferences.html">Conferences Attended</a>
+                <a href="workshops.html">Workshops Attended</a>
+                <a href="talks.html">Invited Talks</a>
+                <a href="teaching.html">Teaching</a>
+            </div>
+        </nav>
+
 
 
         <div class="main-content">
@@ -200,9 +223,9 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                         <defs>
                                             <linearGradient id="InstaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                <stop offset="0%" class="insta-stop-1" />
-                                                <stop offset="25%" class="insta-stop-2" />
-                                                <stop offset="50%" class="insta-stop-3" />
+                                                <stop offset="0%" style="stop-color:#f9ce34;stop-opacity:1" />
+                                                <stop offset="25%" style="stop-color:#ee2a7b;stop-opacity:1" />
+                                                <stop offset="50%" style="stop-color:#6228d7;stop-opacity:1" />
                                             </linearGradient>
                                         </defs>
                                         <path fill="url(#InstaGradient)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
@@ -226,7 +249,6 @@
 
     <!-- External JS -->
     <script src="script.js"></script>
-    <script src="sidebar-loader.js"></script>
 
 
 </body>
