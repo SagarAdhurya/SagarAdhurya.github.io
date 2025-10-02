@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acknowledgements - Dr. Sagar Adhurya</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Acknowledgements-specific styles */
+    .acknowledgements-overview {
+      background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%);
+      border-left: 5px solid var(--accent-color);
+    }
+    
+    .acknowledgement-section {
+      margin: 40px 0;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border-left: 4px solid var(--accent-color);
+      transition: var(--transition);
+    }
+    
+    .acknowledgement-section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-left-color: var(--primary-color);
+    }
+    
+    .acknowledgement-section h3 {
+      color: var(--primary-color);
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .acknowledgement-section h3::before {
+      content: '💚';
+      font-size: 1.2em;
+    }
+    
+    .acknowledgement-section.family h3::before {
+      content: '👨‍👩‍👦‍👦';
+    }
+    
+    .acknowledgement-section.mentors h3::before {
+      content: '👨‍🏫';
+    }
+    
+    .acknowledgement-section.colleagues h3::before {
+      content: '🤝';
+    }
+    
+    .person {
+      margin: 20px 0;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(167, 201, 87, 0.2);
+    }
+    
+    .person:last-child {
+      border-bottom: none;
+    }
+    
+    .person-name {
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
+    
+    .person-role {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 8px;
+      font-size: 0.9em;
+    }
+    
+    .person-description {
+      color: var(--text-color);
+      line-height: 1.6;
+      text-align: justify;
+    }
+    
+    .family-member {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background: rgba(167, 201, 87, 0.05);
+      border-radius: var(--border-radius);
+      margin: 10px 0;
+      transition: var(--transition);
+    }
+    
+    .family-member:hover {
+      background: rgba(167, 201, 87, 0.1);
+      transform: translateX(5px);
+    }
+    
+    .family-role-icon {
+      font-size: 1.5em;
+      width: 40px;
+      text-align: center;
+    }
+    
+    .family-info {
+      flex: 1;
+    }
+    
+    .family-name {
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 3px;
+    }
+    
+    .family-relation {
+      color: #666;
+      font-size: 0.9em;
+    }
+    
+    .closing-note {
+      background: linear-gradient(135deg, rgba(167, 201, 87, 0.1) 0%, rgba(106, 153, 78, 0.1) 100%);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      text-align: center;
+      margin: 40px 0;
+      border: 2px solid rgba(167, 201, 87, 0.3);
+    }
+    
+    .closing-note p {
+      font-size: 1.1em;
+      color: var(--primary-color);
+      font-style: italic;
+      margin: 0;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .acknowledgement-section {
+        padding: 20px;
+      }
+      
+      .family-member {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+      
+      .family-role-icon {
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <nav>
+      <div class="nav-container">
+        <div class="nav-brand">Dr. Sagar Adhurya</div>
+        <a href="index.html">About Me</a>
+        <a href="research.html">Research Experience</a>
+        <a href="publications.html">Publications</a>
+        <a href="projects.html">Projects</a>
+        <a href="awards.html">Academic Achievements</a>
+        <a href="conferences.html">Conferences Attended</a>
+        <a href="workshops.html">Workshops Attended</a>
+        <a href="talks.html">Invited Talks</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="acknowledgements.html" class="active">Acknowledgements</a>
+      </div>
+    </nav>
+
+    <button class="mobile-nav-toggle" aria-label="Open navigation">
+      <svg class="icon-hamburger" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+      </svg>
+    </button>
+
+    <div class="main-content">
+      <header>
+        <div class="container">
+          <div class="header-content">
+            <div class="header-info">
+              <h1>Acknowledgements</h1>
+              <h2>Gratitude • Support • Guidance • Inspiration</h2>
+              <h3>Recognizing those who have shaped my journey in research and life</h3>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="container">
+          <section class="loading acknowledgements-overview">
+            <h2 class="section-title">A Journey of Gratitude</h2>
+            <p>Throughout my academic and research journey, I have been blessed with the unwavering support of my family and the invaluable guidance of exceptional mentors and colleagues. This page is dedicated to acknowledging those who have been instrumental in shaping my career, inspiring my growth, and standing by me through every challenge and triumph. Their contributions have not only advanced my professional development but have also enriched my personal growth in countless ways.</p>
+          </section>
+
+          <!-- Family Section -->
+          <section class="acknowledgement-section family loading">
+            <h3>Family - My Foundation</h3>
+            <p>First and foremost, I want to acknowledge my family for being by my side always, in each and every moment. Their unconditional love, constant encouragement, and unwavering faith in my abilities have been the cornerstone of my success.</p>
+            
+            <div class="family-member">
+              <div class="family-role-icon">👩</div>
+              <div class="family-info">
+                <div class="family-name">Luna Adhurya</div>
+                <div class="family-relation">Mother</div>
+              </div>
+            </div>
+            
+            <div class="family-member">
+              <div class="family-role-icon">👨</div>
+              <div class="family-info">
+                <div class="family-name">Phanisankar Adhurya</div>
+                <div class="family-relation">Father</div>
+              </div>
+            </div>
+            
+            <div class="family-member">
+              <div class="family-role-icon">👨‍💼</div>
+              <div class="family-info">
+                <div class="family-name">Saikat Adhurya</div>
+                <div class="family-relation">Brother</div>
+              </div>
+            </div>
+            
+            <div class="family-member">
+              <div class="family-role-icon">💍</div>
+              <div class="family-info">
+                <div class="family-name">Sayantika Ray</div>
+                <div class="family-relation">Fiancée</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Research Mentors Section -->
+          <section class="acknowledgement-section mentors loading">
+            <h3>Research Mentors - My Guiding Lights</h3>
+            
+            <div class="person">
+              <div class="person-name">Dr. Utpal Singha Roy</div>
+              <div class="person-role">College Teacher & Research Initiator</div>
+              <div class="person-description">
+                My heartfelt gratitude to Dr. Utpal Singha Roy, my college teacher, who introduced me to the fascinating world of research and guided me throughout my career. His early mentorship laid the foundation for my research journey and instilled in me a deep passion for scientific inquiry.
+              </div>
+            </div>
+
+            <div class="person">
+              <div class="person-name">Prof. Santanu Ray</div>
+              <div class="person-role">PhD Supervisor</div>
+              <div class="person-description">
+                I am deeply grateful to Prof. Santanu Ray, my PhD supervisor, whose constant encouragement inspired me to strive for excellence and whose guidance helped me navigate important decisions in life. His wisdom extended far beyond research, and he is always available whenever I seek his counsel. His mentorship has profoundly shaped both my professional and personal growth, and I consider myself truly fortunate to have such an extraordinary guide.
+              </div>
+            </div>
+
+            <div class="person">
+              <div class="person-name">Prof. Young-Seuk Park</div>
+              <div class="person-role">Korean Postdoc Supervisor</div>
+              <div class="person-description">
+                I owe special thanks to Prof. Young-Seuk Park, my Korean postdoctoral supervisor, who turned my dream of pursuing a foreign postdoc into reality. During my tenure of just 14 months, I gained not only profound knowledge in ecological modelling and informatics but also the privilege of knowing a remarkable human being. In a country where I had no one, he became my guardian, taking care of me beyond academic guidance. He was not merely a postdoctoral mentor; he believed in holistic development — nurturing my physical and mental well-being, fostering a positive lab environment, encouraging my hobbies, and guiding my future. I will never forget the countless hours he spent coaching me on how to excel in job interviews, or the day he drove for hours to bid me farewell as I returned to India. His words — that he would continue to guide me even from afar — remain true, for he still does, despite the distance.
+              </div>
+            </div>
+
+            <div class="person">
+              <div class="person-name">Dr. Anuradha Bhat</div>
+              <div class="person-role">Postdoc Mentor at IISER Kolkata</div>
+              <div class="person-description">
+                I am deeply thankful to Dr. Anuradha Bhat for offering me a postdoctoral position in India at a time when I was desperately seeking an opportunity. Beyond her invaluable guidance in my research, she generously gave me time and encouragement to prepare for a crucial job interview. In my brief tenure at IISER, I consider myself fortunate to have met a mentor like her — someone who is not only an exceptional guide but also a wonderful human being.
+              </div>
+            </div>
+          </section>
+
+          <!-- Colleagues & Collaborators Section -->
+          <section class="acknowledgement-section colleagues loading">
+            <h3>Colleagues & Collaborators - My Academic Family</h3>
+            
+            <div class="person">
+              <div class="person-name">Prof. Sabyasachi Bhattacharya, Prof. Punyasloke Bhadury & Prof. Malay Banerjee</div>
+              <div class="person-role">Academic Collaborators</div>
+              <div class="person-description">
+                These distinguished professors have remained always beside me whenever I sought their help in my research life. Their willingness to share knowledge, provide guidance, and offer support has been a constant source of strength throughout my academic journey.
+              </div>
+            </div>
+
+            <div class="person">
+              <div class="person-name">Dr. Fahad Al Basir</div>
+              <div class="person-role">Lab Senior & Mathematical Biology Mentor</div>
+              <div class="person-description">
+                I extend my gratitude to Dr. Fahad Al Basir, who not only helped me constantly during my PhD tenure and beyond with his valuable suggestions but also introduced me to the fascinating field of Mathematical Biology. His expertise and guidance opened new research avenues for me.
+              </div>
+            </div>
+
+            <div class="person">
+              <div class="person-name">Dr. Arnab Banerjee, Dr. Joyita Mukherjee & Dr. Nabyendu Rakshit</div>
+              <div class="person-role">Lab Seniors</div>
+              <div class="person-description">
+                My lab seniors who constantly helped me not only during my PhD tenure but even beyond that time with their valuable suggestions. Their peer mentorship, collaborative spirit, and continuous support have been instrumental in my research development and professional growth.
+              </div>
+            </div>
+          </section>
+
+          <!-- Closing Note -->
+          <div class="closing-note loading">
+            <p>
+              "The journey of research and academic excellence is never a solitary endeavor. It is built upon the foundation of love, guidance, and collaboration from those who believe in your potential and support your dreams. To all mentioned above and many others who have touched my life in meaningful ways - thank you for being part of my story."
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="container">
+          <p>&copy; <span id="current-year">2025</span> Dr. Sagar Adhurya. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <button id="backToTopBtn" title="Go to top" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
