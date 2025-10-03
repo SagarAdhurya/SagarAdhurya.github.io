@@ -209,6 +209,12 @@
       color: var(--accent-color);
       font-weight: 700;
     }
+
+    .project-title-italic {
+       color: var(--secondary-color); 
+       font-style: italic; 
+       margin-bottom: 10px; 
+      }
     
     .status-badge {
       padding: 6px 14px;
