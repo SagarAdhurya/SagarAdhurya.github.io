@@ -80,19 +80,3 @@ if (backToTopBtn) {
     });
 }
 
-const CORRECT_PW = 'Sagar123#';  // set your chosen password
-
-function validatePw() {
-  const entry = document.getElementById('pwInput').value;
-  if (entry === CORRECT_PW) {
-    window.open(window._pwTarget, '_blank');
-    closePwModal();
-  } else {
-    alert('Incorrect password');
-  }
-}
-
-function closePwModal() {
-  document.getElementById('pwModal').style.display = 'none';
-  document.getElementById('pwInput').value = '';
-}
